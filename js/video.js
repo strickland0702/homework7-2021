@@ -51,10 +51,18 @@ document.querySelector("#slider").addEventListener("click", function() {
 });
 
 document.querySelector("#mute").addEventListener("click", function() {
-	console.log("Mute")
-	video.volume = 0
-	document.querySelector("#slider").value = 0
-	document.querySelector("#volume").innerHTML = video.volume * 100 + "%"
+
+	if (video.muted == false){
+		console.log("Mute")
+		video.muted = true
+		document.querySelector("#mute").innerHTML = "Unmute"
+	}
+	else {
+		console.log("Unmute")
+		video.muted = false
+		document.querySelector("#mute").innerHTML = "Mute"
+	}
+
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
